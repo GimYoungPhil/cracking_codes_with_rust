@@ -1,0 +1,6 @@
+[workspace]
+
+members = [
+  "cracking_codes",
+  "chapter_01",
+]
