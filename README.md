@@ -11,3 +11,12 @@ $ cracking_codes_with_rust
             lib.rs
     /target
 ```
+
+
+```sh
+$ cargo new cracking_codes --bin --vcs none
+```
+
+```sh
+$ cargo new chapter_01 --lib --vcs none
+```
