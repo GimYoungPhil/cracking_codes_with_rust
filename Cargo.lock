@@ -3,6 +3,10 @@
 version = 3
 
 [[package]]
+name = "chapter_00"
+version = "0.1.0"
+
+[[package]]
 name = "chapter_01"
 version = "0.1.0"
 
@@ -14,6 +18,7 @@ version = "0.1.0"
 name = "cracking_codes"
 version = "0.1.0"
 dependencies = [
+ "chapter_00",
  "chapter_01",
  "chapter_02",
 ]

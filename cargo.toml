@@ -2,6 +2,7 @@
 
 members = [
   "cracking_codes",
+  "chapter_00",
   "chapter_01",
   "chapter_02",
 ]

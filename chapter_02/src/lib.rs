@@ -164,4 +164,152 @@ mod tests {
         // assert_eq!((-128_i8).div_euclid(-1), 128);
         // assert_eq!((-128_i8).rem_euclid(-1), 0);
     }
+
+    #[test]
+    fn it_works_i8_0() {
+        assert_eq!(127_i8.div_euclid(127), 1);
+        assert_eq!(127_i8.rem_euclid(127), 0);
+
+        assert_eq!(127_i8.div_euclid(1), 127);
+        assert_eq!(127_i8.rem_euclid(1), 0);
+
+        // panic
+        // assert_eq!(127_i8.div_euclid(0), 0);
+        // assert_eq!(127_i8.rem_euclid(0), 0);
+
+        assert_eq!(127_i8.div_euclid(-1), -127);
+        assert_eq!(127_i8.rem_euclid(-1), 0);
+
+        assert_eq!(127_i8.div_euclid(-127), -1);
+        assert_eq!(127_i8.rem_euclid(-127), 0);
+
+        assert_eq!(127_i8.div_euclid(-128), 0);
+        assert_eq!(127_i8.rem_euclid(-128), 127);
+    }
+
+    #[test]
+    #[should_panic]
+    fn it_works_i8_panic() {
+        assert_eq!(127_i8.div_euclid(0), 0);
+        assert_eq!(127_i8.rem_euclid(0), 0);
+
+        assert_eq!(1_i8.div_euclid(0), 0);
+        assert_eq!(1_i8.rem_euclid(0), 0);
+
+        assert_eq!(0_i8.div_euclid(0), 0);
+        assert_eq!(0_i8.rem_euclid(0), 0);
+
+        assert_eq!((-1_i8).div_euclid(0), 0);
+        assert_eq!((-1_i8).rem_euclid(0), 0);
+    }
+
+    #[test]
+    fn it_works_i8_1() {
+        assert_eq!(1_i8.div_euclid(127), 0);
+        assert_eq!(1_i8.rem_euclid(127), 1);
+
+        assert_eq!(1_i8.div_euclid(1), 1);
+        assert_eq!(1_i8.rem_euclid(1), 0);
+
+        // panic
+        // assert_eq!(1_i8.div_euclid(0), 0);
+        // assert_eq!(1_i8.rem_euclid(0), 0);
+
+        assert_eq!(1_i8.div_euclid(-1), -1);
+        assert_eq!(1_i8.rem_euclid(-1), 0);
+
+        assert_eq!(1_i8.div_euclid(-127), 0);
+        assert_eq!(1_i8.rem_euclid(-127), 1);
+
+        assert_eq!(1_i8.div_euclid(-128), 0);
+        assert_eq!(1_i8.rem_euclid(-128), 1);
+    }
+
+    #[test]
+    fn it_works_i8_2() {
+        assert_eq!(0_i8.div_euclid(127), 0);
+        assert_eq!(0_i8.rem_euclid(127), 0);
+
+        assert_eq!(0_i8.div_euclid(1), 0);
+        assert_eq!(0_i8.rem_euclid(1), 0);
+
+        // panic
+        // assert_eq!(0_i8.div_euclid(0), 0);
+        // assert_eq!(0_i8.rem_euclid(0), 0);
+
+        assert_eq!(0_i8.div_euclid(-1), 0);
+        assert_eq!(0_i8.rem_euclid(-1), 0);
+
+        assert_eq!(0_i8.div_euclid(-127), 0);
+        assert_eq!(0_i8.rem_euclid(-127), 0);
+
+        assert_eq!(0_i8.div_euclid(-128), 0);
+        assert_eq!(0_i8.rem_euclid(-128), 0);
+    }
+
+    #[test]
+    fn it_works_i8_3() {
+        assert_eq!((-1_i8).div_euclid(127), -1);
+        assert_eq!((-1_i8).rem_euclid(127), 126);
+
+        assert_eq!((-1_i8).div_euclid(1), -1);
+        assert_eq!((-1_i8).rem_euclid(1), 0);
+
+        // panic
+        // assert_eq!((-1_i8).div_euclid(0), 0);
+        // assert_eq!((-1_i8).rem_euclid(0), 0);
+
+        assert_eq!((-1_i8).div_euclid(-1), 1);
+        assert_eq!((-1_i8).rem_euclid(-1), 0);
+
+        assert_eq!((-1_i8).div_euclid(-127), 1);
+        assert_eq!((-1_i8).rem_euclid(-127), 126);
+
+        assert_eq!((-1_i8).div_euclid(-128), 1);
+        assert_eq!((-1_i8).rem_euclid(-128), 127);
+    }
+
+    #[test]
+    fn it_works_i8_4() {
+        assert_eq!((-127_i8).div_euclid(127), -1);
+        assert_eq!((-127_i8).rem_euclid(127), 0);
+
+        assert_eq!((-127_i8).div_euclid(1), -127);
+        assert_eq!((-127_i8).rem_euclid(1), 0);
+
+        // panic
+        // assert_eq!((-127_i8).div_euclid(0), 0);
+        // assert_eq!((-127_i8).rem_euclid(0), 0);
+
+        assert_eq!((-127_i8).div_euclid(-1), 127);
+        assert_eq!((-127_i8).rem_euclid(-1), 0);
+
+        assert_eq!((-127_i8).div_euclid(-127), 1);
+        assert_eq!((-127_i8).rem_euclid(-127), 0);
+
+        assert_eq!((-127_i8).div_euclid(-128), 1);
+        assert_eq!((-127_i8).rem_euclid(-128), 1);
+    }
+
+    #[test]
+    fn it_works_i8_5() {
+        assert_eq!((-128_i8).div_euclid(127), -2);
+        assert_eq!((-128_i8).rem_euclid(127), 126);
+
+        assert_eq!((-128_i8).div_euclid(1), -128);
+        assert_eq!((-128_i8).rem_euclid(1), 0);
+
+        // panic
+        // assert_eq!((-128_i8).div_euclid(0), 0);
+        // assert_eq!((-128_i8).rem_euclid(0), 0);
+
+        // assert_eq!((-128_i8).div_euclid(-1), i8::MAX + 1);
+        // assert_eq!((-128_i8).rem_euclid(-1), 0);
+
+        assert_eq!((-128_i8).div_euclid(-127), 2);
+        assert_eq!((-128_i8).rem_euclid(-127), 126);
+
+        assert_eq!((-128_i8).div_euclid(-128), 1);
+        assert_eq!((-128_i8).rem_euclid(-128), 0);
+    }
 }

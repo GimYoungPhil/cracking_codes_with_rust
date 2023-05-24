@@ -1,11 +1,8 @@
 [package]
-name = "cracking_codes"
+name = "chapter_00"
 version = "0.1.0"
 edition = "2021"
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
 [dependencies]
-chapter_00 = { path = "../chapter_00" }
-chapter_01 = { path = "../chapter_01" }
-chapter_02 = { path = "../chapter_02" }
