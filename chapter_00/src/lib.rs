@@ -19,13 +19,34 @@ pub fn euclid(d: i8) {
     println!();
 }
 
+pub fn display_rem(d: i8) {
+    for rhs in i8::MIN..i8::MAX {
+        match d.checked_rem(rhs) {
+            Some(r) => {
+                println!("{:} | {:} | {:}", d, d.checked_rem(rhs).unwrap(), d.checked_rem_euclid(rhs).unwrap());
+            },
+            None => {
+                println!("{} | {}", d, "panic");
+            }
+        }
+    }
+} 
+
 #[cfg(test)]
 mod tests {
+    use std::ops::Rem;
+
     use super::*;
 
     #[test]
     fn it_works() {
         let result = add(2, 2);
         assert_eq!(result, 4);
+    }
+
+    #[test]
+    fn it_works_0() {
+        assert_eq!(127_i8.rem(-128), 127);
+        assert_eq!(127_i8.rem_euclid(-128), 127);
     }
 }
