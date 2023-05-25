@@ -14,5 +14,5 @@ fn main() {
     // chapter_00::euclid(-127);
     // chapter_00::euclid(-128);
 
-    chapter_00::display_rem(127);
+    chapter_00::display_rem(-5);
 }

@@ -13,22 +13,38 @@ pub fn euclid(d: i8) {
             },
             None => {
                 println!("|{:^7}/{:^7}|{:^32}|", d, rhs, "panic !");
-            }
+            },
         }
     }
     println!();
 }
 
+pub fn display_euclid() {
+    println!("{}", (-5_i8) % 2);
+    // println!("{}", (-5_i8));
+}
+
 pub fn display_rem(d: i8) {
-    for rhs in i8::MIN..i8::MAX {
-        match d.checked_rem(rhs) {
-            Some(r) => {
-                println!("{:} | {:} | {:}", d, d.checked_rem(rhs).unwrap(), d.checked_rem_euclid(rhs).unwrap());
-            },
-            None => {
-                println!("{} | {}", d, "panic");
-            }
+    println!("|{:_>7}___|{:_>7}___|{:_>7}___|{:_>7}___|{:_>7}___|", d, "div", "euclid", "rem", "euclid");
+    for rhs in i8::MIN..=i8::MAX {
+        print!("|{:>7}   |", rhs);
+        match d.checked_div(rhs) {
+            Some(r) => print!("{:>7}   |", r),
+            None => print!("{:>7}   |","panic"),
         }
+        match d.checked_div_euclid(rhs) {
+            Some(r) => print!("{:>7}   |", r),
+            None => print!("{:>7}   |","panic"),
+        }
+        match d.checked_rem(rhs) {
+            Some(r) => print!("{:>7}   |", r),
+            None => print!("{:>7}   |","panic"),
+        }
+        match d.checked_rem_euclid(rhs) {
+            Some(r) => print!("{:>7}   |", r),
+            None => print!("{:>7}   |","panic"),
+        }
+        println!();
     }
 } 
 
