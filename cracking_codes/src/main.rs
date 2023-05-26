@@ -15,6 +15,14 @@ fn main() {
     // chapter_00::euclid(-128);
     // chapter_00::display_rem(5);
 
-    chapter_00::display_division();
-    chapter_00::display_euclid();
+    let integers: [(i8, i8); 4] = [
+        (13_i8, 5_i8),
+        (13_i8, -5_i8),
+        (-13_i8, 5_i8),
+        (-13_i8, -5_i8),
+    ];
+    chapter_00::display_div(&integers);
+    chapter_00::display_div_euclid(&integers);
+    chapter_00::display_checked_div(&integers);
+    chapter_00::display_checked_div_euclid(&integers);
 }
