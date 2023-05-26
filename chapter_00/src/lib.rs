@@ -2,6 +2,38 @@ pub fn add(left: usize, right: usize) -> usize {
     left + right
 }
 
+pub fn display_division() {
+    let integers = [
+        (13_i8, 5_i8),
+        (13_i8, -5_i8),
+        (-13_i8, 5_i8),
+        (-13_i8, -5_i8),
+    ];
+    for (dividend, rhs) in integers {
+        println!("{} / {} = {}", dividend, rhs, dividend / rhs);
+    }
+
+    for (dividend, rhs) in integers {
+        println!("{} % {} = {}", dividend, rhs, dividend % rhs);
+    }
+}
+
+pub fn display_euclid() {
+    let integers = [
+        (13_i8, 5_i8),
+        (13_i8, -5_i8),
+        (-13_i8, 5_i8),
+        (-13_i8, -5_i8),
+    ];
+    for (dividend, rhs) in integers {
+        println!("{} div_euclid {} = {}", dividend, rhs, dividend.div_euclid(rhs));
+    }
+
+    for (dividend, rhs) in integers {
+        println!("{} rem_euclid {} = {}", dividend, rhs, dividend.rem_euclid(rhs));
+    }
+}
+
 pub fn euclid(d: i8) {
     let rhs_list: [i8; 6] = [127, 1, 0, -1, -127, -128];
 
@@ -19,10 +51,6 @@ pub fn euclid(d: i8) {
     println!();
 }
 
-pub fn display_euclid() {
-    println!("{}", (-5_i8) % 2);
-    // println!("{}", (-5_i8));
-}
 
 pub fn display_rem(d: i8) {
     println!("|{:_>7}___|{:_>7}___|{:_>7}___|{:_>7}___|{:_>7}___|", d, "div", "euclid", "rem", "euclid");

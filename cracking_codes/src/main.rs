@@ -13,6 +13,8 @@ fn main() {
     // chapter_00::euclid(-1);
     // chapter_00::euclid(-127);
     // chapter_00::euclid(-128);
+    // chapter_00::display_rem(5);
 
-    chapter_00::display_rem(-5);
+    chapter_00::display_division();
+    chapter_00::display_euclid();
 }
