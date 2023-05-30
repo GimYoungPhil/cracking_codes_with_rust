@@ -1,24 +1,45 @@
+use std::error::Error;
+
 pub fn add(left: usize, right: usize) -> usize {
     left + right
 }
 
 const SYMBOLS: &'static str = "ABCDEFGHIJKLMLOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz1234567890 !?.";
 
-pub enum Mode {
-    Encrypt,
-    Decrypt,
+pub fn rotate_key_0(key: i128, length: usize) -> Option<i128> {
+    // key % (length as i128)
+
+    match key.checked_rem(length as i128) {
+        Some(v) => Some(v),
+        None => None,
+    }
 }
 
-pub fn rotated_key(key: usize, length: usize) -> usize {
-    key % length
+pub fn rotate_key_1(key: i128, length: usize) -> Result<i128, Error> {
+    // key % (length as i128)
+
+    match key.checked_rem(length as i128) {
+        Some(v) => Ok(v),
+        None => Err("overflow!"),
+    }
 }
 
-pub fn rotated_key_1(key: i128, length: usize) -> i128 {
-    key % (length as i128)
+pub fn rotate_key(key: i128, length: usize) -> Option<i128> {
+    // key % (length as i128)
+
+    match key.checked_rem(length as i128) {
+        Some(v) => Some(v),
+        None => None,
+    }
 }
 
-pub fn rotated_key_2(key: i128, length: usize) -> i128 {
-    key.rem_euclid(length as i128)
+pub fn rotate_key_euclid(key: i128, length: usize) -> i128 {
+    // key.rem_euclid(length as i128)
+
+    match key.checked_rem_euclid(length as i128) {
+        Some(v) => v,
+        None => panic!("overflow!"),
+    }
 }
 
 pub fn test_message(message: &str) {
@@ -30,12 +51,24 @@ pub fn test_message(message: &str) {
     }
 }
 
-/*
-pub fn caesar_cipher(key: usize, mode: Mode, message: &str) -> String {
+pub enum Mode {
+    Encrypt,
+    Decrypt,
+}
+
+pub fn caesar_cipher(key: i128, mode: Mode, message: &str) -> String {
     let symbols_length = SYMBOLS.len();
     let message_length = message.len();
     let mut translated: Vec<u8> = Vec::with_capacity(message_length);
 
+    println!("{}", key);
+    let ro_key = rotate_key(key, symbols_length).un;
+    let ro_key_eu = rotate_key_euclid(key, symbols_length);
+
+    println!("ro_key: {}", ro_key);
+    println!("ro_key_eu: {}", ro_key_eu);
+
+    /*
     for ch in message.chars() {
         match SYMBOLS.find(ch) {
             Some(symbol_index) => {
@@ -62,10 +95,11 @@ pub fn caesar_cipher(key: usize, mode: Mode, message: &str) -> String {
             },
         }
     }
+    */
 
     String::from_utf8(translated).expect("Invalid UTF-8")
 }
-*/
+
 
 #[cfg(test)]
 mod tests {

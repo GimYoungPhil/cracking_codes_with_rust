@@ -2,6 +2,28 @@ pub fn add(left: usize, right: usize) -> usize {
     left + right
 }
 
+pub fn some_0() {
+    let integers: [(i8, i8); 4] = [
+        (11_i8, 26_i8),
+        (11_i8, -26_i8),
+        (-11_i8, 26_i8),
+        (-11_i8, -26_i8),
+    ];
+    display_div(&integers);
+    display_div_euclid(&integers);
+}
+
+pub fn some_1() {
+    let integers: [(i8, i8); 4] = [
+        (i8::MAX, 1_i8),
+        (i8::MAX, -1_i8),
+        (i8::MIN, 1_i8),
+        (i8::MIN, -1_i8),
+    ];
+    display_checked_div(&integers);
+    display_checked_div_euclid(&integers);
+}
+
 pub fn display_div(integers: &[(i8, i8)]) {
     for (dividend, rhs) in integers {
         println!("{:>4} / {:>4} = {:>4}", dividend, rhs, dividend / rhs);
