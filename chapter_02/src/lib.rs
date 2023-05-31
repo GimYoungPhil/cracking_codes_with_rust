@@ -1,8 +1,6 @@
-
 pub fn add(left: usize, right: usize) -> usize {
     left + right
 }
-
 
 pub fn rotate_key(key: i128, length: usize) -> Option<i128> {
     match key.checked_rem(length as i128) {
@@ -27,10 +25,6 @@ pub fn test_message(message: &str) {
     }
 }
 
-pub fn rotate_index(key: i128, index: usize, length: usize) {
-
-}
-
 fn make_key(key: i32, length: usize) -> (i32, i32, i32) {
     let positive_length = length as i32;
 
@@ -47,6 +41,7 @@ fn make_key(key: i32, length: usize) -> (i32, i32, i32) {
     (key, encoding_key, decoing_key)
 }
 
+#[derive(Debug)]
 struct CipherKey {
     key: i32,
     encoding_key: i32,
@@ -129,6 +124,12 @@ mod tests {
         assert_eq!(rotate_key(26, 26), Some(0));
         assert_eq!(rotate_key(27, 26), Some(1));
         assert_eq!(rotate_key(52, 26), Some(0));
+    }
+
+    
+    #[test]
+    fn it_make_key_1() {
+        assert_eq!(make_key_1(1, 8), CipherKey { key: 1, encoding_key: 1, decoing_key: 7 });
     }
 
     #[test]
