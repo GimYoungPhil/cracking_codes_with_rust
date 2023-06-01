@@ -32,7 +32,7 @@ pub fn caesar_cipher(key: i32, mode: Mode, message: &str) -> String {
                 translated.push(ch);
             },
         }
-        println!();
+        // println!();
     }
 
     translated
