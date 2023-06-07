@@ -15,10 +15,15 @@ name = "chapter_02"
 version = "0.1.0"
 
 [[package]]
+name = "chapter_02_a"
+version = "0.1.0"
+
+[[package]]
 name = "cracking_codes"
 version = "0.1.0"
 dependencies = [
  "chapter_00",
  "chapter_01",
  "chapter_02",
+ "chapter_02_a",
 ]

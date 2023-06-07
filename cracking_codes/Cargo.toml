@@ -9,3 +9,4 @@ edition = "2021"
 chapter_00 = { path = "../chapter_00" }
 chapter_01 = { path = "../chapter_01" }
 chapter_02 = { path = "../chapter_02" }
+chapter_02_a = { path = "../chapter_02_a" }

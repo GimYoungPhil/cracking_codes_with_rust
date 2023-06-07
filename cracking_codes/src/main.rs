@@ -12,4 +12,12 @@ fn main() {
 
     let decoding = cipher.decrypt_message(&encoding);
     println!("{}", decoding);
+
+    let (first, last) = (String::from("Lisa"), String::from("Su"));
+
+    struct Name(String, String);
+
+    let tom = Name(String::from("Jensen"), String::from("Huang"));
+
+    const mut MY_POINT: &str = "127.0.0.1";
 }
