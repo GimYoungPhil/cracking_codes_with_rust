@@ -67,7 +67,7 @@ pub mod caesar {
                             Mode::Decrypt => self.decode(),
                         };
 
-                        let translated_index: usize = moved_index.rem_euclid(symbols_length) as usize;
+                        let translated_index: usize = moved_index.rem_euclid(10) as usize;
                         translated.push_str(&SYMBOLS[translated_index..translated_index+1]);
 
                         println!("ch: {:>2}, in: {:>2}, mo: {:>2}, ou: {:>2}", ch, symbol_index, moved_index, translated_index);

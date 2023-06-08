@@ -26,7 +26,7 @@ pub mod caesar {
             let mut translated = String::with_capacity(message.len());
 
             for ch in message.chars() {
-                
+
                 match SYMBOLS.find(ch) {
                     Some(symbol_index) => {
 
