@@ -2,6 +2,8 @@
 // use chapter_01;
 // use chapter_02::caesar::Cipher;
 
+mod my_trait;
+
 fn main() {
     // let message = "This is my secret message.";
 
