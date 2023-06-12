@@ -3,6 +3,7 @@
 // use chapter_02::caesar::Cipher;
 
 mod my_trait;
+mod lifetime;
 
 fn main() {
     // let message = "This is my secret message.";
