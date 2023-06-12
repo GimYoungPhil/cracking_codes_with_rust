@@ -4,6 +4,7 @@
 
 mod my_trait;
 mod lifetime;
+mod life;
 
 fn main() {
     // let message = "This is my secret message.";
@@ -15,5 +16,4 @@ fn main() {
 
     // let decoding = cipher.decrypt_message(&encoding);
     // println!("{}", decoding);
-
 }

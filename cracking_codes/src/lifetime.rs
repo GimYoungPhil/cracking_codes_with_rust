@@ -6,6 +6,7 @@ fn longest<'a>(x: &'a str, y: &'a str) -> &'a str {
     }
 }
 
+
 #[cfg(test)]
 mod tests {
     use super::*;
@@ -28,16 +29,16 @@ mod tests {
         }
     }
 
-    #[test]
-    fn it_works_2() {
-        let string1 = String::from("abcde");
-        let result;
-        {
-            let string2 = String::from("xyz");
-            result = longest(string1.as_str(), string2.as_str());
-        }
-        assert_eq!(result, "abcde");
-    }
+    // #[test]
+    // fn it_works_2() {
+    //     let string1 = String::from("abcde");
+    //     let result;
+    //     {
+    //         let string2 = String::from("xyz");
+    //         result = longest(string1.as_str(), string2.as_str());
+    //     }
+    //     assert_eq!(result, "abcde");
+    // }
 
     #[test]
     fn it_works_3() {
