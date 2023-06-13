@@ -5,6 +5,7 @@
 mod my_trait;
 mod lifetime;
 mod life;
+mod my_struct;
 
 fn main() {
     // let message = "This is my secret message.";

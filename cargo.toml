@@ -6,5 +6,6 @@ members = [
   "chapter_01",
   "chapter_02",
   "chapter_02_a",
+  "chapter_02_b",
   "common_collections",
 ]
