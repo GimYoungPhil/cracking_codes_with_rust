@@ -66,7 +66,7 @@ pub mod caesar {
 
 #[cfg(test)]
 mod tests {
-    use super::*;
+    // use super::*;
 
     #[test]
     fn it_make_key() {
