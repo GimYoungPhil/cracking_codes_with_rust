@@ -16,6 +16,6 @@ fn main() {
     let encoding = cipher.encrypt_message(message);
     println!("{}", encoding);
 
-    // let decoding = cipher.decrypt_message(&encoding);
-    // println!("{}", decoding);
+    let decoding = cipher.decrypt_message(&encoding);
+    println!("{}", decoding);
 }
