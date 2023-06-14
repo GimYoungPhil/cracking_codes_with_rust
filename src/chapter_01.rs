@@ -1,7 +1,3 @@
-pub fn get_five() -> usize {
-    5
-}
-
 pub fn reverse_chiper(message: &str) -> String {
     let mut translated: Vec<u8> = Vec::with_capacity(message.len());
 
@@ -18,12 +14,6 @@ pub fn reverse_chiper(message: &str) -> String {
 #[cfg(test)]
 mod tests {
     use super::*;
-
-    #[test]
-    fn it_works() {
-        let result = get_five();
-        assert_eq!(result, 5);
-    }
 
     #[test]
     fn it_reverse() {
