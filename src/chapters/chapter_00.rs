@@ -1,19 +1,26 @@
-pub fn add(left: usize, right: usize) -> usize {
-    left + right
-}
-
 pub fn some_0() {
     let integers: [(i8, i8); 4] = [
-        (11_i8, 26_i8),
-        (11_i8, -26_i8),
-        (-11_i8, 26_i8),
-        (-11_i8, -26_i8),
+        (13_i8, 66_i8),
+        (13_i8, -66_i8),
+        (-13_i8, 66_i8),
+        (-13_i8, -66_i8),
     ];
     display_div(&integers);
     display_div_euclid(&integers);
 }
 
 pub fn some_1() {
+    let integers: [(i8, i8); 4] = [
+        (79_i8, 66_i8),
+        (79_i8, -66_i8),
+        (-79_i8, 66_i8),
+        (-79_i8, -66_i8),
+    ];
+    display_div(&integers);
+    display_div_euclid(&integers);
+}
+
+pub fn some_2() {
     let integers: [(i8, i8); 4] = [
         (i8::MAX, 1_i8),
         (i8::MAX, -1_i8),
@@ -132,11 +139,6 @@ mod tests {
 
     use super::*;
 
-    #[test]
-    fn it_works() {
-        let result = add(2, 2);
-        assert_eq!(result, 4);
-    }
 
     #[test]
     fn it_works_0() {
