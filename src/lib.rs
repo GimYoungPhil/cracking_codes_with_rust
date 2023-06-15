@@ -12,6 +12,7 @@ pub mod chapters {
 pub mod lang {
     pub mod exercise;
     pub mod iterator;
+    pub mod pointers;
 }
 
 pub fn greeting(name: &str) -> String {
