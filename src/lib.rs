@@ -17,6 +17,7 @@ pub mod lang {
     mod trait_object;
     mod trait_generic;
     mod state_pattern;
+    mod state_behavior;
 }
 
 pub fn greeting(name: &str) -> String {
