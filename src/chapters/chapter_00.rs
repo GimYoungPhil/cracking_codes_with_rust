@@ -137,9 +137,6 @@ pub fn display_rem_1(d: i8) {
 mod tests {
     use std::ops::Rem;
 
-    use super::*;
-
-
     #[test]
     fn it_works_0() {
         assert_eq!(127_i8.rem(-128), 127);

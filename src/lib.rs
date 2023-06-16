@@ -10,9 +10,12 @@ pub mod chapters {
 }
 
 pub mod lang {
-    pub mod exercise;
-    pub mod iterator;
-    pub mod pointers;
+    mod exercise;
+    mod iterator;
+    mod pointers;
+    mod oop;
+    mod trait_object;
+    mod trait_generic;
 }
 
 pub fn greeting(name: &str) -> String {

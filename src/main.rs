@@ -1,6 +1,5 @@
 // use cracking_codes_with_rust::chapters::chapter_00;
 // use cracking_codes_with_rust::chapters::chapter_02;
-use cracking_codes_with_rust::lang::pointers;
 
 // use chapter_00;
 // use chapter_01;
@@ -20,5 +19,4 @@ fn main() {
     // let decoding = cipher.decrypt_message(&encoding);
     // println!("{}", decoding);
 
-    pointers::run();
 }
