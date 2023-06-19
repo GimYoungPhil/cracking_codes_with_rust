@@ -1,8 +1,20 @@
 pub mod caesar {
-    pub struct Cipher {
-        pub original_key: i32,
-        pub encoding_key: i32,
-        pub decoding_key: i32,
+
+    enum CipherType {
+        I8(i8),
+        I16(i16),
+        I32(i32),
+        I64(i64),
+        U8(u8),
+        U16(u16),
+        U32(u32),
+        U64(u64),
+    }
+
+    pub struct Cipher<T> {
+        pub original_key: T,
+        pub encoding_key: T,
+        pub decoding_key: T,
     }
 
     enum Mode {
@@ -10,11 +22,11 @@ pub mod caesar {
         Decrypt,
     }
 
-    impl Cipher {
+    impl<T> Cipher<T> {
         const SYMBOLS: &str = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz1234567890 !?.";
-        const SYMBOLS_LENGTH: i32 = 66;
+        const SYMBOLS_LENGTH: T = 66;
 
-        pub fn with_key(key: i32) -> Cipher {
+        pub fn with_key(key: T) -> Cipher<T> {
             let encoding_key = key.rem_euclid(Cipher::SYMBOLS_LENGTH);
             Cipher {
                 original_key: key,
