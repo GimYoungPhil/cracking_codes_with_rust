@@ -16,9 +16,10 @@ pub mod caesar {
 
         pub fn with_key(key: i32) -> Cipher {
             let encoding_key = key.rem_euclid(Cipher::SYMBOLS_LENGTH);
+
             Cipher {
                 original_key: key,
-                encoding_key,
+                encoding_key: encoding_key,
                 decoding_key: -encoding_key,
             }
         }
