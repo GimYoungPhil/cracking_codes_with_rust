@@ -4,7 +4,6 @@ pub mod caesar {
         pub original_key: i32,
         pub encoding_key: i32,
         pub decoding_key: i32,
-        pub symbols_length: i32,
     }
 
     enum Mode {
@@ -12,18 +11,16 @@ pub mod caesar {
         Decrypt,
     }
 
-    const SYMBOLS: &str = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz1234567890 !?.";
-
     impl Cipher {
+        const SYMBOLS: &str = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz1234567890 !?.";
+        const SYMBOLS_LENGTH: i32 = 66;
 
         pub fn with_key(key: i32) -> Cipher {
-            let symbols_length = SYMBOLS.len() as i32;
-            let encoding_key = key.rem_euclid(symbols_length);
+            let encoding_key = key.rem_euclid(Cipher::SYMBOLS_LENGTH);
             Cipher {
                 original_key: key,
                 encoding_key,
                 decoding_key: -encoding_key,
-                symbols_length,
             }
         }
 
@@ -41,7 +38,7 @@ pub mod caesar {
 
             for ch in message.chars() {
                 
-                match SYMBOLS.find(ch) {
+                match Cipher::SYMBOLS.find(ch) {
                     Some(symbol_index) => {
 
                         let moved_index = symbol_index as i32 + match mode {
@@ -49,8 +46,8 @@ pub mod caesar {
                             Mode::Decrypt => self.decoding_key,
                         };
 
-                        let translated_index: usize = moved_index.rem_euclid(self.symbols_length) as usize;
-                        let translated_ch= &SYMBOLS[translated_index..translated_index+1];
+                        let translated_index: usize = moved_index.rem_euclid(Cipher::SYMBOLS_LENGTH) as usize;
+                        let translated_ch= &Cipher::SYMBOLS[translated_index..translated_index+1];
                         translated.push_str(translated_ch);
 
                         println!("ch: {:>2}, in: {:>2}, mo: {:>2}, ou: {:>2}, to: {:>2}", ch, symbol_index, moved_index, translated_index, translated_ch);
