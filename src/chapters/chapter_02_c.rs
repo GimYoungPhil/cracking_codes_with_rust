@@ -1,15 +1,6 @@
-pub mod caesar {
 
-    enum CipherType {
-        I8(i8),
-        I16(i16),
-        I32(i32),
-        I64(i64),
-        U8(u8),
-        U16(u16),
-        U32(u32),
-        U64(u64),
-    }
+pub mod caesar {
+    use std::ops::{Rem, Add};
 
     pub struct Cipher<T> {
         pub original_key: T,
@@ -22,7 +13,7 @@ pub mod caesar {
         Decrypt,
     }
 
-    impl<T> Cipher<T> {
+    impl<T> Cipher<T> where T: Add + Rem {
         const SYMBOLS: &str = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz1234567890 !?.";
         const SYMBOLS_LENGTH: T = 66;
 

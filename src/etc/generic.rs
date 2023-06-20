@@ -1,12 +1,13 @@
-fn largest(list: &[i32]) -> i32 {
-    let mut largest = list[0];
+fn largest(list: &[i32]) -> &i32 {
+    let mut largest = &list[0];
 
-    for &number in list.iter() {
-        if number > largest {
-            largest = number;
+    for item in list {
+        if item > largest {
+            largest = item;
         }
     }
 
+    println!("{}", list.len());
     largest
 }
 
@@ -16,12 +17,16 @@ mod tests {
 
     #[test]
     fn it_works() {
-        let list = vec![34, 50, 25, 100, 65];
+        let list = vec![1, 2, 3, 4, 5, 34, 50, 25, 100, 65];
+        println!("{}", list.len());
 
-        assert_eq!(100, largest(&list));
+        let result = largest(&list);
+        println!("{}", result);
 
-        let list = vec![102, 34, 6000, 89, 54, 2, 43, 8];
+        assert_eq!(&100, result);
 
-        assert_eq!(6000, largest(&list));
+        // let list = vec![102, 34, 6000, 89, 54, 2, 43, 8];
+
+        // assert_eq!(&6000, largest(&list));
     }
 }

@@ -1,5 +1,6 @@
 pub mod chapters {
     pub mod chapter_02;
+    // pub mod chapter_02_c;
 }
 
 pub mod lang {
@@ -11,6 +12,8 @@ pub mod lang {
     mod trait_generic;
     mod state_pattern;
     mod state_behavior;
+    mod closer;
+    mod closer2;
 }
 
 pub mod etc {
