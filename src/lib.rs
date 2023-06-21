@@ -23,6 +23,11 @@ pub mod etc {
     mod generic2;
 }
 
+pub mod docs {
+    mod ch05;
+    mod ch13;
+}
+
 pub fn greeting(name: &str) -> String {
     format!("hello {}", name)
 }
