@@ -24,6 +24,7 @@ pub mod etc {
 }
 
 pub mod docs {
+    mod ch00;
     mod ch05;
     mod ch13;
 }
