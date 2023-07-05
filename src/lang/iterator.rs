@@ -53,5 +53,4 @@ mod tests {
             .sum();
         assert_eq!(sum, 18)
     }
-
 }

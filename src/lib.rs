@@ -34,6 +34,7 @@ pub mod books {
     // mod ch03;
     // mod ch03_2;
     pub mod ch04;
+    pub mod ch04_1;
     pub mod ch04_3;
 }
 

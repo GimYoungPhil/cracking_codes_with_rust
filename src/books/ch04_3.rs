@@ -54,6 +54,18 @@ fn largest_number(a: &[i32; 5]) -> i32 {
     b
 }
 
+fn run_2() {
+
+    let largest;
+
+    {
+        let a: [i32; 5] = [10, 30, 99, 100, 98];
+        largest = largest_number(&a);
+    }
+
+    println!("{largest}");
+}
+
 fn largest_number_2(a: &[i32; 5]) -> &i32 {
     let mut b = &a[0];
 
@@ -66,9 +78,73 @@ fn largest_number_2(a: &[i32; 5]) -> &i32 {
     b
 }
 
-fn run_2() {
-    let a: [i32; 5] = [10, 30, 99, 100, 98];
-    let largest = largest_number(&a);
+fn run_3() {
+
+    // let largest;
+
+    {
+        let a: [i32; 5] = [10, 30, 99, 100, 98];
+        // largest = largest_number_2(&a);
+    }
+
+    // println!("{largest}");
+}
+
+fn bigger_number(x: i32, y: i32) -> i32 {
+    if x > y {
+        x
+    } else if x < y {
+        y
+    } else {
+        0
+    }
+}
+
+fn run_4() {
+
+    let bigger;
+
+    {
+        let a = 10;
+        let b = 9;
+        bigger = bigger_number(a, b);
+    }
+
+    println!("{bigger}");
+}
+
+fn bigger_number_2<'a>(x: &'a i32, y: &'a i32) -> &'a i32 {
+    if x > y {
+        x
+    } else if x < y {
+        y
+    } else {
+        &0
+    }
+}
+
+fn run_5() {
+
+    // let bigger;
+
+    // {
+    //     let a = 10;
+    //     let b = 9;
+    //     bigger = bigger_number_2(&a, &b);
+    // }
+
+    // println!("{bigger}");
+}
+
+fn run_6() {
+
+    // let a = 10;
+    // let mut b = 9;
+    // let bigger = bigger_number_2(&a, &b);
+
+    // println!("{bigger}");
+    // b = 99;
+    // println!("{bigger}");
 }
 
 // fn iterator_0() {
