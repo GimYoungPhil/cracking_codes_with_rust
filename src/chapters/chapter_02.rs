@@ -68,7 +68,7 @@ pub mod caesar {
                 }
             }
 
-            translated
+            Ok(translated)
         }
     }
 }
