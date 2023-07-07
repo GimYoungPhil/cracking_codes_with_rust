@@ -1,18 +1,24 @@
-// use cracking_codes_with_rust::chapters::chapter_00;
+use std::env;
+use std::process;
+
+use cracking_codes_with_rust::Config;
 // use cracking_codes_with_rust::chapters::chapter_02::caesar;
 
-use cracking_codes_with_rust::books::ch04;
-
 fn main() {
+    let args: Vec<String> = env::args().collect();
 
-    // let message = "This is my secret message.";
-    // let cipher = caesar::Cipher::with_key(13);
+    let config = Config::build(&args).unwrap_or_else(|err| {
+        println!("Program parsing arguments: {err}");
+        process::exit(1);
+    });
 
-    // let encoding = cipher.encrypt_message(message);
-    // println!("{}", encoding);
+    println!("mode: {}", config.mode);
+    println!("file: {}", config.file_path);
 
-    // let decoding = cipher.decrypt_message(&encoding);
-    // println!("{}", decoding);
-
-    ch04::mm();
+    if let Err(e) = cracking_codes_with_rust::run(config) {
+        println!("Application error: {e}");
+        process::exit(1);
+    }
 }
+
+

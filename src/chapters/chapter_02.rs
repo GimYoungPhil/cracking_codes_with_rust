@@ -24,15 +24,15 @@ pub mod caesar {
             }
         }
 
-        pub fn encrypt_message(&self, message: &str) -> String {
-            self.translate_message(message, Mode::Encrypt)
-        }
+        // pub fn encrypt_message(&self, message: &str) -> String {
+        //     self.translate_message(message, Mode::Encrypt)
+        // }
 
-        pub fn decrypt_message(&self, message: &str) -> String {
-            self.translate_message(message, Mode::Decrypt)
-        }
+        // pub fn decrypt_message(&self, message: &str) -> String {
+        //     self.translate_message(message, Mode::Decrypt)
+        // }
 
-        fn translate_message(&self, message: &str, mode: Mode) -> String {
+        pub fn translate_message(&self, message: &str, mode: &str) -> Result<String, &'static str> {
 
             let mut translated = String::with_capacity(message.len());
 
@@ -41,9 +41,17 @@ pub mod caesar {
                 match Cipher::SYMBOLS.find(ch) {
                     Some(symbol_index) => {
 
-                        let moved_index = symbol_index as i32 + match mode {
-                            Mode::Encrypt => self.encoding_key,
-                            Mode::Decrypt => self.decoding_key,
+                        // let moved_index = symbol_index as i32 + match mode {
+                        //     Mode::Encrypt => self.encoding_key,
+                        //     Mode::Decrypt => self.decoding_key,
+                        // };
+
+                        let moved_index = symbol_index as i32 + if mode == "encoding" {
+                            self.encoding_key
+                        } else if mode == "decoding" {
+                            self.decoding_key
+                        } else {
+                            return Err("not enough arguments");
                         };
 
                         let translated_index: usize = moved_index.rem_euclid(Cipher::SYMBOLS_LENGTH) as usize;
