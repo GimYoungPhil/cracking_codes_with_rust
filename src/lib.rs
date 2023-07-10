@@ -1,52 +1,118 @@
 use std::error::Error;
 use std::fs;
+use std::env;
+use chapter_02::caesar;
+
+pub mod chapter_02 {
+    pub mod caesar;
+}
 
 pub struct Config {
-    pub mode: String,
+    pub key: i32,
+    pub mode: caesar::Mode,
     pub file_path: String,
+    pub ignore_desc: bool,
 }
 
 impl Config {
     pub fn build(args: &[String]) -> Result<Config, &'static str> {
-        if args.len() < 3 {
+        if args.len() < 4 {
             return Err("not enough arguments");
         }
 
-        let mode = args[1].clone();
-        let file_path = args[2].clone();
+        let key: i32 = args[1].trim().parse().expect("Please type a number");
 
-        Ok(Config { mode, file_path })
+        let mode = if args[2] == "encoding" {
+            caesar::Mode::Encrypt
+        } else if args[2] == "decoding" {
+            caesar::Mode::Decrypt
+        } else {
+            return Err("mode: \"encoding\" or \"decoding\"");
+        };
+
+        let file_path: String = args[3].clone();
+
+        let ignore_desc = env::var("IGNORE_DESC").is_ok();
+
+        Ok(Config {
+            key,
+            mode,
+            file_path,
+            ignore_desc,
+        })
     }
 }
 
-pub fn run(config: Config) -> Result<(), Box<dyn Error>> {
-    let contents = fs::read_to_string(config.file_path)?;
+pub fn run(config: Config) -> Result<(), Box<dyn Error>>{
 
-    println!("With text:\n{contents}");
+    let content = fs::read_to_string(config.file_path)?;
+
+    let message = content.trim();
+
+    let cipher = caesar::Cipher::with_key(config.key);
+
+    let result = cipher.translate_message(message, config.mode, config.ignore_desc);
+
+    println!("");
+    println!("{:?}:", config.mode);
+    println!("{result}");
 
     Ok(())
-
-    // let message = "This is my secret message.";
-    // let cipher = caesar::Cipher::with_key(13);
-
-    // let encoding = cipher.encrypt_message(message);
-    // println!("{}", encoding);
-
-    // let decoding = cipher.decrypt_message(&encoding);
-    // println!("{}", decoding);
 }
 
-pub mod chapters {
-    // pub mod chapter_00;
-    pub mod chapter_02;
-    // pub mod chapter_02_c;
+pub fn search<'a>(query: &str, contents: &'a str) -> Vec<&'a str> {
+    let mut results = Vec::new();
+
+    for line in contents.lines() {
+        if line.contains(query) {
+            results.push(line);
+        }
+    }
+
+    results
+}
+
+pub fn search_case_insensitive<'a>(query: &str, contents: &'a str) -> Vec<&'a str> {
+    let query = query.to_lowercase();
+    let mut results = Vec::new();
+
+    for line in contents.lines() {
+        if line.to_lowercase().contains(&query) {
+            results.push(line);
+        }
+    }
+
+    results
 }
 
 
 #[cfg(test)]
 mod tests {
     use super::*;
-    use super::chapters::chapter_02::caesar::Cipher;
+
+    #[test]
+    fn case_sensitive() {
+        let query = "duct";
+        let contents = "\
+Rust:
+safe, fast, productive.
+Pick three.
+Duct tape.";
+
+        assert_eq!(vec!["safe, fast, productive."], search(query, contents));
+    }
+
+    #[test]
+    fn case_insensitive() {
+        let query = "rUst";
+        let contents = "\
+Rust:
+safe, fast, productive.
+Pick three.
+Trust me.";
+
+        assert_eq!(vec!["Rust:", "Trust me."], search_case_insensitive(query, contents));
+    }
 
     #[test]
     fn one_result() {
@@ -55,9 +121,9 @@ mod tests {
         let contents = "\
 This is my secret message.";
 
-        assert_eq!(
-            String::from("sdf"),
-            Cipher::with_key(13).translate_message(contents, mode).unwrap()
-        );
+        // assert_eq!(
+        //     String::from("sdf"),
+        //     Cipher::with_key(13).translate_message(contents, mode).unwrap()
+        // );
     }
 }

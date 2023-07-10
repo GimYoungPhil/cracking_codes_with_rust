@@ -14,14 +14,19 @@ pub mod caesar {
         const SYMBOLS: &str = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz1234567890 !?.";
         const SYMBOLS_LENGTH: i32 = 66;
 
-        pub fn with_key(key: i32) -> Cipher {
-            let encoding_key = key.rem_euclid(Cipher::SYMBOLS_LENGTH);
+        pub fn with_key(key: i32) -> Result<Cipher, &'static str> {
+            let encoding_key = match key.checked_rem_euclid(Cipher::SYMBOLS_LENGTH) {
+                Some(v) => v,
+                None => {
+                    return Err("");
+                },
+            };
 
-            Cipher {
+            Ok(Cipher {
                 original_key: key,
                 encoding_key: encoding_key,
                 decoding_key: -encoding_key,
-            }
+            })
         }
 
         // pub fn encrypt_message(&self, message: &str) -> String {
