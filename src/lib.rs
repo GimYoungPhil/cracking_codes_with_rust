@@ -7,6 +7,11 @@ pub mod chapter_02 {
     pub mod caesar;
 }
 
+pub mod books {
+    // pub mod ch03;
+    pub mod ch03_3;
+}
+
 pub struct Config {
     pub key: i32,
     pub mode: caesar::Mode,
