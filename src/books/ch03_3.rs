@@ -94,4 +94,32 @@ mod tests {
         println!("{}", ss);
         println!("work 8");
     }
+
+    // #[test]
+    // fn work_9() {
+    //     let mut s = String::from("hello");
+
+    //     let r1 = &s;
+    //     let r2 = &s;
+    //     let r3 = &mut s;
+
+    //     println!("{}, {}", r1, r2);
+    //     println!("{}", r3);
+
+    //     println!("work 9");
+    // }
+
+    #[test]
+    fn work_10() {
+        let mut s = String::from("hello");
+
+        let r1 = &s;
+        let r2 = &s;
+        println!("{}, {}", r1, r2);
+
+        let r3 = &mut s;
+        println!("{}", r3);
+
+        println!("work 10");
+    }
 }
