@@ -33,8 +33,7 @@ mod tests {
 
         user.email = String::from("anotheremail@example.com");
 
-        let email = String::from("anotheremail@example.com");
-        assert_eq!(user.email, email);
+        assert_eq!(user.email, String::from("anotheremail@example.com"));
     }
 
     #[test]
@@ -50,5 +49,40 @@ mod tests {
         *count += 2;
 
         assert_eq!(user.sign_in_count, 3);
+    }
+
+    #[test]
+    fn work_3() {
+        let user = User {
+            active: true,
+            username: String::from("someusername123"),
+            email: String::from("someone@example.com"),
+            sign_in_count: 1,
+        };
+
+        let user2 = User {
+            email: String::from("another@example.com"),
+            ..user
+        };
+
+        assert_eq!(user.active, true);
+        assert_eq!(user.email, String::from("someone@example.com"));
+        assert_eq!(user2.sign_in_count, 1);
+    }
+
+    #[test]
+    fn work_4() {
+        let user = User {
+            active: true,
+            username: String::from("someusername123"),
+            email: String::from("someone@example.com"),
+            sign_in_count: 1,
+        };
+
+        let active = user.active;
+        let email = user.email;
+        // let u = user;
+
+
     }
 }
