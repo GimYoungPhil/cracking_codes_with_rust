@@ -117,9 +117,6 @@ impl Simple {
 
         greeting
     }
-
-
-
 }
 
 #[cfg(test)]
