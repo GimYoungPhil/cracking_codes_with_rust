@@ -1,14 +1,85 @@
+mod hello {
+    fn hello_0() {
+        let words = String::from("hello");
+        println!("{}", words);
+    }
+
+    fn hello_1() -> String {
+        let words = String::from("hello");
+        println!("{}", words);
+
+        words
+    }
+
+    fn hello_2() -> &'static String {
+        let words = String::from("hello");
+        println!("{}", words);
+
+        &words
+    }
+
+    fn hello_3() -> &'static str {
+        let words = "hello";
+        println!("{}", words);
+
+        words
+    }
+}
+
+// mod hello_2 {
+//     fn math() -> &'static i32 {
+//         let i = 10;
+//         &i
+//     }
+
+//     fn hello_0() -> &str {
+//         let words = String::from("hello");
+//         println!("{}", words);
+
+//         &words;
+//     }
+
+//     fn hello_1(name: String) -> &str {
+//         println!("{}", name);
+
+//         &name;
+//     }
+
+//     fn hello_2(mut name: String) -> &str {
+//         name.push_str(", hi");
+
+//         &name;
+//     }
+// }
+
+
+mod hello_3 {
+    fn hello(name: String) {
+        let words = String::from("hello");
+        println!("{}, {}", words, name);
+    }
+
+    fn hello_str_0(name: String) -> String {
+        let mut words = String::from("hello");
+        println!("{}, {}", words, name);
+
+        words.push_str(&name);
+
+        words
+    }
+
+    fn hello_str_1(mut name: String) -> String {
+        let words = String::from("hello");
+        println!("{}, {}", words, name);
+
+        name.push_str(&words);
+
+        name
+    }
+}
+
 fn greeting(name: &str) {
     println!("Hello, {name}!");
-}
-
-fn date_string() -> String {
-    let date = String::from("2023-07-19");
-    date
-}
-
-fn time_string() -> &'static str {
-    "AM 10:23:47"
 }
 
 struct Simple {
