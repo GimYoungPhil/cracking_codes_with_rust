@@ -8,18 +8,7 @@ pub mod chapter_02 {
 }
 
 pub mod books {
-    // pub mod ch03;
-    // pub mod ch03_3;
-    // pub mod ch05_1;
-    // pub mod ch05_2;
-    // pub mod ch05_3;
-    // pub mod ch06_0;
-    // pub mod ch06_1;
-    // pub mod ch06_2;
-    // pub mod ch06_3;
-    // pub mod ch06_4;
-    // pub mod ch08_0;
-    // pub mod ch08_2;
+    pub mod ch08_3;
 }
 
 pub struct Config {
@@ -131,14 +120,14 @@ Trust me.";
 
     #[test]
     fn one_result() {
-        let key = 13;
-        let mode = "encoding";
-        let contents = "\
-This is my secret message.";
+//         let key = 13;
+//         let mode = "encoding";
+//         let contents = "\
+// This is my secret message.";
 
-        // assert_eq!(
-        //     String::from("sdf"),
-        //     Cipher::with_key(13).translate_message(contents, mode).unwrap()
-        // );
+//         assert_eq!(
+//             String::from("sdf"),
+//             Cipher::with_key(key).translate_message(contents, mode).unwrap()
+//         );
     }
 }
