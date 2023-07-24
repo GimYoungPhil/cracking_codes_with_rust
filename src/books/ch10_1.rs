@@ -11,6 +11,7 @@ mod ex1 {
         let float = Point { x: 1.0, y: 4.8 };
     }
 }
+
 mod ex2 {
     struct Point<T, U> {
         x: T,
@@ -68,7 +69,6 @@ pub mod ex4 {
         println!("p3.x = {}, p3.y = {}", p3.x, p3.y);
     }
 }
-
 
 #[cfg(test)]
 mod tests {
