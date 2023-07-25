@@ -11,9 +11,11 @@ pub mod books {
     // pub mod ch08_3;
     // pub mod ch08_4;
     // pub mod ch10_1;
-    pub mod ch10_2;
-    pub mod ch10_3;
+    // pub mod ch10_2;
+    // pub mod ch10_3;
     // pub mod ch10_4;
+    // pub mod ch10_5;
+    pub mod ch10_6;
 }
 
 pub struct Config {

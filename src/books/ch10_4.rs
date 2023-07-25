@@ -26,7 +26,7 @@ impl<T> Area<T> for Rectangle<T> {
     }
 }
 
-fn display<A: Area>(list: &[A]) {
+fn display<A: Area<T>>(list: &[A]) {
     for item in list {
         let area = item.calculate_area();
         println!("Area: {}", area);
