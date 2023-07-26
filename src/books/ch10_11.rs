@@ -22,33 +22,38 @@ impl Summary for Instagram {
     }
 }
 
-pub struct Tiktok {
-    pub title: String,
+trait Display {
+    fn display(&self) -> String {
+        format!("hi")
+    }
 }
 
-fn notify(item: &impl Summary) {
-    println!("Notify news! {}", item.summarize());
+impl Display for Twitter {}
+
+impl Display for Instagram {}
+
+fn notify(item: &(impl Summary + Display)) {
+    println!("Notify news! {}, {}", item.summarize(), item.display());
 }
 
-fn breaking<T: Summary>(item: &T) {
-    println!("Breaking news! {}", item.summarize());
+fn breaking<T: Summary + Display>(item: &T) {
+    println!("Breaking news! {}, {}", item.summarize(), item.display());
 }
-
 
 #[cfg(test)]
 mod tests {
-    use super::{Twitter, Instagram, Summary, notify};
+    use super::*;
 
     #[test]
     fn works_1() {
-        let tw: Twitter = Twitter {
-            message: String::from("new Twwiter"),
+        let fb = Twitter {
+            message: String::from("new Twitter"),
         };
         let ins = Instagram {
             content: String::from("new Instagram"),
         };
 
-        notify(&tw);
-        notify(&ins);
+        notify(&fb);
+        breaking(&ins);
     }
 }

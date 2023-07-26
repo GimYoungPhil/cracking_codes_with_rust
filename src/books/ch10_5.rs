@@ -1,9 +1,9 @@
 struct Point<T,U> {
     x: T,
     y: U,
-  }
-  
-  impl<T, U> Point<T, U> {
+}
+
+impl<T, U> Point<T, U> {
     fn x(&self) -> &T {
         &self.x
     }
@@ -18,19 +18,18 @@ struct Point<T,U> {
             y: other.y,
         }
     }
-  }
-  
-  impl Point<f32, f32> {
+}
+
+impl Point<f32, f32> {
     fn distance_from_origin(&self) -> f32 {
         (self.x.powi(2) + self.y.powi(2)).sqrt()
     }
-  }
-  
-  
-  #[cfg(test)]
-  mod tests {
+}
+
+#[cfg(test)]
+mod tests {
     use super::*;
-  
+
     #[test]
     fn works_1() {
         let p = Point {
@@ -39,4 +38,4 @@ struct Point<T,U> {
         };
         p.distance_from_origin();
     }
-  }
+}
