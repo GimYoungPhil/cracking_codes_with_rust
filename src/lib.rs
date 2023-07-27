@@ -8,10 +8,7 @@ pub mod chapter_02 {
 }
 
 pub mod books {
-    // pub mod ch10_12;
-    // pub mod ch10_13;
-    // pub mod ch10_14;
-    pub mod ch10_15;
+    pub mod ch10_16;
 }
 
 pub struct Config {

@@ -11,7 +11,7 @@ pub enum Mode {
 }
 
 impl Cipher {
-    const SYMBOLS: &str = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz1234567890 !?.";
+    const SYMBOLS: &'static str = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz1234567890 !?.";
     const SYMBOLS_LENGTH: i32 = 66;
 
     pub fn with_key(key: i32) -> Cipher {
