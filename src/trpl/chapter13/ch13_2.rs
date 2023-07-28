@@ -22,14 +22,69 @@ fn ex13_3() {
     println!("{s}");
 }
 
+fn ex13_4() {
+    let list = vec![1, 2, 3, 4, 5];
+    println!("Before defining closure: {:?}", list);
+
+    let only_borrows = || println!("From closure: {:?}", list);
+
+    println!("Before calling closure: {:?}", list);
+    only_borrows();
+    println!("After calling closure: {:?}", list);
+}
+
+fn ex13_5() {
+    let mut list = vec![1, 2, 3, 4, 5];
+    println!("Before defining closure: {:?}", list);
+
+    let mut borrows_mutably = || list.push(7);
+
+    // println!("Before calling closure: {:?}", list);
+    borrows_mutably();
+    println!("After calling closure: {:?}", list);
+}
+
+use std::thread;
+
+fn ex13_6() {
+    let list: Vec<i32> = vec![1, 2, 3];
+    println!("Before defining closure: {:?}", list);
+
+    thread::spawn(move || println!("From thread: {:?}", list))
+        .join()
+        .unwrap();
+
+    // println!("{:?}", list);
+}
+
 
 #[cfg(test)]
 mod tests {
     use super::*;
 
     #[test]
-    fn works_1() {
+    fn works_2() {
         ex13_2();
+    }
+
+    #[test]
+    fn works_3() {
         ex13_3();
     }
+
+    #[test]
+    fn works_4() {
+        ex13_4();
+    }
+
+    #[test]
+    fn works_5() {
+        ex13_5();
+    }
+
+    #[test]
+    fn works_6() {
+        ex13_6();
+    }
+
 }
