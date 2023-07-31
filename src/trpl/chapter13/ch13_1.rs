@@ -16,6 +16,14 @@ impl Inventory {
     fn most_stocked(&self) -> ShirtColor {
         ShirtColor::Blue
     }
+
+    fn giveaway_1(&self, user_preference: Option<ShirtColor>) -> ShirtColor {
+        user_preference.unwrap_or(self.best_color())
+    }
+
+    fn best_color(&self) -> ShirtColor {
+        ShirtColor::Red
+    }
 }
 
 

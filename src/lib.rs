@@ -9,7 +9,7 @@ pub mod chapter_02 {
 
 mod trpl {
     mod chapter13 {
-        // mod ch13_1;
+        mod ch13_1;
         mod ch13_2;
     }
 }
