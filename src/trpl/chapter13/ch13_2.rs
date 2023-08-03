@@ -19,6 +19,9 @@ fn ex13_2() {
         thread::sleep(Duration::from_secs(2));
         num
     };
+
+    let s = expensive_closure(10);
+    println!("{s}");
 }
 
 fn ex13_3() {
