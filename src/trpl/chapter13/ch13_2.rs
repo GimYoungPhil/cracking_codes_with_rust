@@ -1,6 +1,6 @@
 fn  add_one_v1(x: u32) -> u32 { x + 1 }
 
-fn ex13_2() {
+fn ex13_1() {
     let add_one_v2 = |x: u32| -> u32 { x + 1 };
     let add_one_v3 = |x| { x + 1 };
     let add_one_v4 = |x| x + 1;
@@ -11,6 +11,14 @@ fn ex13_2() {
     let x4 = add_one_v4(1u8);
 
     println!("{x1}, {x2}, {x3}, {x4}");
+}
+
+fn ex13_2() {
+    let expensive_closure = |num: u32| -> u32 {
+        println!("calculating slowly...");
+        thread::sleep(Duration::from_secs(2));
+        num
+    };
 }
 
 fn ex13_3() {
@@ -44,7 +52,7 @@ fn ex13_5() {
     println!("After calling closure: {:?}", list);
 }
 
-use std::thread;
+use std::{thread, time::Duration};
 
 fn ex13_6() {
     let list: Vec<i32> = vec![1, 2, 3];
