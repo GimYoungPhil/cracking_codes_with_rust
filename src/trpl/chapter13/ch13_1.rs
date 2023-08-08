@@ -54,6 +54,10 @@ mod one {
         consoles: Vec<Console>
     }
 
+    fn getXbox() -> Console {
+        Console::XboxSeriesX
+    }
+
     impl Inven {
         fn giveaway(&self, user_prefer: Optbody<Console>) -> Console {
             user_prefer.unwrap_or_else(|| self.most_console())
