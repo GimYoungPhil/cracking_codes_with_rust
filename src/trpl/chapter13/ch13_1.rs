@@ -56,7 +56,7 @@ mod one {
 
     impl Inven {
         fn giveaway(&self, user_prefer: Optbody<Console>) -> Console {
-            user_prefer.unwrap_or_else(|| Console::XboxSeriesX)
+            user_prefer.unwrap_or_else(|| self.most_console())
         }
 
         fn most_console(&self) -> Console {
