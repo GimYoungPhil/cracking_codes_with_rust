@@ -26,6 +26,45 @@ impl Inventory {
     }
 }
 
+mod one {
+    enum Optbody<T> {
+        Somebody(T),
+        Nobody,
+    }
+
+    impl<T> Optbody<T> {
+        pub fn unwrap_or_else<F>(self, f: F) -> T
+        where
+            F: FnOnce() -> T
+        {
+            match self {
+                Optbody::Somebody(x) => x,
+                Optbody::Nobody => f(),
+            }
+        }
+    }
+
+    enum Console {
+        Playstation5,
+        Switch,
+        XboxSeriesX,
+    }
+
+    struct Inven {
+        consoles: Vec<Console>
+    }
+
+    impl Inven {
+        fn giveaway(&self, user_prefer: Optbody<Console>) -> Console {
+            user_prefer.unwrap_or_else(|| Console::XboxSeriesX)
+        }
+
+        fn most_console(&self) -> Console {
+            Console::Switch
+        }
+    }
+}
+
 
 #[cfg(test)]
 mod tests {
@@ -41,7 +80,7 @@ mod tests {
         let giveaway_1 = store.giveaway(user_1);
         println!("{:?}: {:?}", user_1, giveaway_1);
 
-        let user_2: Option<ShirtColor> = None;
+        let user_2: Option<ShirtColor> = Option::None;
         let giveaway_2 = store.giveaway(user_2);
         println!("{:?}: {:?}", user_2, giveaway_2);
     }
