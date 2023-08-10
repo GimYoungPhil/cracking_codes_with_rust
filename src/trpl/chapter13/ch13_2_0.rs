@@ -33,6 +33,8 @@ mod tests {
         assert_eq!(v1_iter.next(), Some(&2));
         assert_eq!(v1_iter.next(), Some(&3));
         assert_eq!(v1_iter.next(), None);
+
+        println!("{:?}", v1);
     }
 
     #[test]
@@ -45,6 +47,8 @@ mod tests {
         assert_eq!(v1_iter.next(), Some(&mut 2));
         assert_eq!(v1_iter.next(), Some(&mut 3));
         assert_eq!(v1_iter.next(), None);
+
+        println!("{:?}", v1);
     }
 
     #[test]
@@ -57,6 +61,8 @@ mod tests {
         assert_eq!(v1_iter.next(), Some(2));
         assert_eq!(v1_iter.next(), Some(3));
         assert_eq!(v1_iter.next(), None);
+
+        // println!("{:?}", v1);
     }
 
 }
