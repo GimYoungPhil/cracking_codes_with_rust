@@ -8,15 +8,11 @@ pub mod chapter_02 {
 }
 
 mod trpl {
+    mod chapter09 {
+        mod ch09_1;
+    }
     mod chapter13 {
         // mod ch13_1_0;
-        // mod ch13_1_1;
-        // mod ch13_1_2;
-        // mod ch13_1_3;
-        // mod ch13_1_4;
-        // mod ch13_2_0;
-        // mod ch13_2_1;
-        mod ch13_2_2;
     }
 }
 

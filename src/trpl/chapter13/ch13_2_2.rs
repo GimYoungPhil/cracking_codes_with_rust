@@ -4,6 +4,7 @@ struct Shoe {
     style: String,
 }
 
+
 fn shoes_in_size(shoes: Vec<Shoe>, shoe_size: u32) -> Vec<Shoe> {
     shoes.into_iter().filter(|x| x.size == shoe_size).collect()
 }
